@@ -1,0 +1,7 @@
+{
+  "appId": "com.piertopeer.PierToPeer",
+  "appName": "myApp",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}
