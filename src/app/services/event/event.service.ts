@@ -1,87 +1,93 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 import 'firebase/storage';
 
 @Injectable({
-  providedIn: 'root'
+   providedIn: 'root'
 })
 export class EventService {
-  public eventListRef: firebase.firestore.CollectionReference;
-  constructor() {
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        this.eventListRef = firebase
-            .firestore()
-            .collection(`/userProfile/${user.uid}/eventList`);
-      }
-    });
-  }
+   public eventListRef: firebase.firestore.CollectionReference;
+   public transportList: firebase.firestore.CollectionReference;
 
-  createEvent(
-      eventName: string,
-      eventDate: string,
-      eventPrice: number,
-      eventCost: number
-  ): Promise<firebase.firestore.DocumentReference> {
-    return this.eventListRef.add({
-      name: eventName,
-      date: eventDate,
-      price: eventPrice * 1,
-      cost: eventCost * 1,
-      revenue: eventCost * -1
-    });
-  }
+   constructor() {
+      firebase.auth().onAuthStateChanged(user => {
+         if (user) {
+            this.eventListRef = firebase
+                .firestore()
+                .collection(`/userProfile/${user.uid}/eventList`);
+         }
+      });
 
-  getEventList(): firebase.firestore.CollectionReference {
-    return this.eventListRef;
-  }
+      firebase.auth().onAuthStateChanged(user => {
+         if (user) {
+            this.transportList = firebase
+                .firestore()
+                .collection(`/userProfile/${user.uid}/eventList`);
+         }
+      });
+   }
 
-  getEventDetail(eventId: string): firebase.firestore.DocumentReference {
-    return this.eventListRef.doc(eventId);
-  }
+   createEvent(
+       itemName: string,
+       startLocation: string,
+       destination: string,
+       sendDate: Date,
+       offerPrice: number,
+       height: number,
+       width: number,
+       length: number,
+       mobile: number
+   ): Promise<firebase.firestore.DocumentReference> {
+      return this.eventListRef.add({
+         itemName: itemName,
+         startLocation: startLocation,
+         destination: destination,
+         sendDate: sendDate,
+         offerPrice: offerPrice,
+         height: height,
+         width: width,
+         length: length,
+         mobile: mobile
+      });
+   }
 
-  addGuest(
-      guestName: string,
-      eventId: string,
-      eventPrice: number,
-      guestPicture: string = null
-  ): Promise<void> {
-    return this.eventListRef
-        .doc(eventId)
-        .collection('guestList')
-        .add({ guestName })
-        .then(newGuest => {
-          return firebase.firestore().runTransaction(transaction => {
-            return transaction
-                .get(this.eventListRef.doc(eventId))
-                .then(eventDoc => {
-                  if (guestPicture != null) {
-                    const storageRef = firebase
-                        .storage()
-                        .ref(`/guestProfile/${newGuest.id}/profilePicture.png`);
+   createTransportEvent(
+       startLocation: string,
+       destination: string,
+       transDate: Date,
+       freightPrice: number,
+       height: number,
+       width: number,
+       length: number,
+       mobile: number
+   ): Promise<firebase.firestore.DocumentReference> {
+      return this.transportList.add({
+         startLocation: startLocation,
+         destination: destination,
+         transDate: transDate,
+         freightPrice: freightPrice,
+         height: height,
+         width: width,
+         length: length,
+         mobile: mobile
+      });
+   }
 
-                    return storageRef
-                        .putString(guestPicture, 'base64', {
-                          contentType: 'image/png'
-                        })
-                        .then(() => {
-                          return storageRef.getDownloadURL().then(downloadURL => {
-                            return this.eventListRef
-                                .doc(eventId)
-                                .collection('guestList')
-                                .doc(newGuest.id)
-                                .update({ profilePicture: downloadURL });
-                          });
-                        });
-                  }
-                  const newRevenue = eventDoc.data().revenue + eventPrice;
-                  transaction.update(this.eventListRef.doc(eventId), {
-                    revenue: newRevenue
-                  });
-                });
-          });
-        });
-  }
+   getSendList(): firebase.firestore.CollectionReference {
+      return this.eventListRef;
+   }
+
+   getTransList(): firebase.firestore.CollectionReference {
+      return this.transportList;
+   }
+
+   getEventDetail(eventId: string): firebase.firestore.DocumentReference {
+      return this.eventListRef.doc(eventId);
+   }
+
+   getTransDetail(eventId: string): firebase.firestore.DocumentReference {
+      return this.transportList.doc(eventId);
+   }
 }

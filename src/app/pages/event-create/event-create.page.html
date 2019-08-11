@@ -1,39 +1,78 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home"></ion-back-button>
-    </ion-buttons>
-    <ion-title>New Event</ion-title>
-  </ion-toolbar>
+   <ion-toolbar>
+      <ion-buttons slot="start">
+         <ion-back-button defaultHref="/home"></ion-back-button>
+      </ion-buttons>
+      <ion-title>New S Event</ion-title>
+   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-item>
-    <ion-label position="stacked">Event Name</ion-label>
-    <ion-input [(ngModel)]="eventName" type="text" placeholder="What's your event's name?">
-    </ion-input>
-  </ion-item>
+   <ion-item>
+      <ion-label position="stacked">Item Name</ion-label>
+      <ion-input [(ngModel)]="itemName" type="text" placeholder="What's your item?">
+      </ion-input>
+   </ion-item>
 
-  <ion-item>
-    <ion-label position="stacked">Price</ion-label>
-    <ion-input [(ngModel)]="eventPrice" type="number" placeholder="How much will guests pay?">
-    </ion-input>
-  </ion-item>
+   <ion-item>
+      <ion-label position="stacked">Starting Location</ion-label>
+      <ion-input [(ngModel)]="startLocation" type="text" placeholder="Preferred pick up location">
+      </ion-input>
+   </ion-item>
 
-  <ion-item>
-    <ion-label position="stacked">Cost</ion-label>
-    <ion-input [(ngModel)]="eventCost" type="number" placeholder="How much are you spending?">
-    </ion-input>
-  </ion-item>
+   <ion-item>
+      <ion-label position="stacked">Destination</ion-label>
+      <ion-input [(ngModel)]="destination" type="text" placeholder="Delivery destination">
+      </ion-input>
+   </ion-item>
 
-  <ion-item>
-    <ion-label>Event Date</ion-label>
-    <ion-datetime [(ngModel)]="eventDate" displayFormat="D MMM, YY" pickerFormat="DD MMM YYYY" min="2017"
-                  max="2020-12-31">
-    </ion-datetime>
-  </ion-item>
+   <ion-item>
+      <ion-label position="stacked">Date to be sent</ion-label>
+      <ion-datetime [(ngModel)]="sendDate" min="2017"
+                    max="2020-12-31" placeholder="When would you like the item sent?">
+      </ion-datetime>
+   </ion-item>
 
-  <ion-button expand="block" (click)="createEvent(eventName, eventDate, eventPrice, eventCost)">
-    Create Event
-  </ion-button>
+   <ion-item>
+      <ion-label position="stacked">Price Offer</ion-label>
+      <ion-input [(ngModel)]="offerPrice" type="number" placeholder="How much will you pay to send?">
+      </ion-input>
+   </ion-item>
+
+   <ion-item>
+      <ion-label position="stacked">Item Height</ion-label>
+      <ion-input [(ngModel)]="height" type="number" placeholder="The height of your item">
+      </ion-input>
+   </ion-item>
+
+   <ion-item>
+      <ion-label position="stacked">Item Width</ion-label>
+      <ion-input [(ngModel)]="width" type="number" placeholder="The width of your item">
+      </ion-input>
+   </ion-item>
+
+   <ion-item>
+      <ion-label position="stacked">Item Length</ion-label>
+      <ion-input [(ngModel)]="length" type="number" placeholder="The length of your item">
+      </ion-input>
+   </ion-item>
+
+   <ion-item>
+      <ion-label position="stacked">Phone</ion-label>
+      <ion-input [(ngModel)]="mobile" type="number" placeholder="Contact details?">
+      </ion-input>
+   </ion-item>
+
+   <ion-button expand="block" (click)="createEvent(
+            itemName,
+            startLocation,
+            destination,
+            sendDate,
+            offerPrice,
+            height,
+            width,
+            length,
+            mobile)">
+      Create Sender Listing
+   </ion-button>
 </ion-content>

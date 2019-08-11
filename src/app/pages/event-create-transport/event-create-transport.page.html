@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>New T Event</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label position="stacked">Starting Location</ion-label>
+    <ion-input [(ngModel)]="startLocation" type="text" placeholder="Where is the pick up location?">
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Destination</ion-label>
+    <ion-input [(ngModel)]="destination" type="text" placeholder="Delivery destination">
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Date of Departure</ion-label>
+    <ion-datetime [(ngModel)]="transDate" displayFormat="DD MM, YY" pickerFormat="DD MM YYYY" min="2017"
+                  max="2020-12-31" placeholder="When would you like the item sent?">
+    </ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Freight Offer</ion-label>
+    <ion-input [(ngModel)]="freightPrice" type="number" placeholder="How much will you pay to send?">
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Item Height</ion-label>
+    <ion-input [(ngModel)]="height" type="number" placeholder="What is the height of your item?">
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Item Width</ion-label>
+    <ion-input [(ngModel)]="width" type="number" placeholder="What is the width of your item?">
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Item Length</ion-label>
+    <ion-input [(ngModel)]="length" type="number" placeholder="What is the length of your item?">
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Phone</ion-label>
+    <ion-input [(ngModel)]="mobile" type="number" placeholder="Contact details?">
+    </ion-input>
+  </ion-item>
+
+  <ion-button expand="block" (click)="createTransportEvent(
+            startLocation,
+            destination,
+            transDate,
+            freightPrice,
+            height,
+            width,
+            length,
+            mobile)">
+    Create Transport Listing
+  </ion-button>
+</ion-content>

@@ -3,20 +3,19 @@ import {Router} from '@angular/router';
 import {EventService} from '../../services/event/event.service';
 
 @Component({
-   selector: 'app-event-create',
-   templateUrl: './event-create.page.html',
-   styleUrls: ['./event-create.page.scss']
+   selector: 'app-event-create-transport',
+   templateUrl: './event-create-transport.page.html',
+   styleUrls: ['./event-create-transport.page.scss'],
 })
-export class EventCreatePage implements OnInit {
+export class EventCreateTransportPage implements OnInit {
 
-   itemName: string;
    startLocation: string;
    destination: string;
-   sendDate: Date;
-   offerPrice: number;
    height: number;
    width: number;
    length: number;
+   freightPrice: number;
+   transDate: Date;
    mobile: number;
 
    constructor(private router: Router, private eventService: EventService) {
@@ -25,22 +24,20 @@ export class EventCreatePage implements OnInit {
    ngOnInit() {
    }
 
-   createEvent(
-       itemName: string,
+   createTransportEvent(
        startLocation: string,
        destination: string,
-       sendDate: Date,
-       offerPrice: number,
+       transDate: Date,
+       freightPrice: number,
        height: number,
        width: number,
        length: number,
        mobile: number):
        void {
-      if (itemName === undefined ||
-          startLocation === undefined ||
+      if (startLocation === undefined ||
           destination === undefined ||
-          sendDate === undefined ||
-          offerPrice === undefined ||
+          transDate === undefined ||
+          freightPrice === undefined ||
           height === undefined ||
           width === undefined ||
           length === undefined ||
@@ -48,12 +45,11 @@ export class EventCreatePage implements OnInit {
          return;
       }
       this.eventService
-          .createEvent(
-              itemName,
+          .createTransportEvent(
               startLocation,
               destination,
-              sendDate,
-              offerPrice,
+              transDate,
+              freightPrice,
               height,
               width,
               length,
@@ -63,4 +59,5 @@ export class EventCreatePage implements OnInit {
          // this.router.navigateByUrl(''); goes back to HomePage
       });
    }
+
 }

@@ -1,30 +1,36 @@
-import { Component, OnInit } from '@angular/core';
-import { EventService } from '../../services/event/event.service';
+import {Component, OnInit} from '@angular/core';
+import {EventService} from '../../services/event/event.service';
 
 @Component({
-  selector: 'app-event-list',
-  templateUrl: './event-list.page.html',
-  styleUrls: ['./event-list.page.scss']
+   selector: 'app-event-list',
+   templateUrl: './event-list.page.html',
+   styleUrls: ['./event-list.page.scss']
 })
 export class EventListPage implements OnInit {
-  public eventList: Array<any>;
-  constructor(private eventService: EventService) {}
+   public eventList: Array<any>;
 
-  ngOnInit() {
-    this.eventService
-        .getEventList()
-        .get()
-        .then(eventListSnapshot => {
-          this.eventList = [];
-          eventListSnapshot.forEach(snap => {
-            this.eventList.push({
-              id: snap.id,
-              name: snap.data().name,
-              price: snap.data().price,
-              date: snap.data().date
-            });
-            return false;
+   constructor(private eventService: EventService) {
+   }
+
+   ngOnInit() {
+      this.eventService
+          .getSendList()
+          .get()
+          .then(eventListSnapshot => {
+             this.eventList = [];
+
+             eventListSnapshot.forEach(snap => {
+                this.eventList.push({
+                   id: snap.id,
+                   itemName: snap.data().itemName,
+                   offerPrice: snap.data().offerPrice,
+                   sendDate: snap.data().sendDate,
+                   startLocation: snap.data().startLocation,
+                   destination: snap.data().destination,
+                   mobile: snap.data().mobile
+                });
+                return false;
+             });
           });
-        });
-  }
+   }
 }

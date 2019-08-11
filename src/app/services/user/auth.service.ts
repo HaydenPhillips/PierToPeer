@@ -17,15 +17,23 @@ export class AuthService {
     return firebase.auth().signInWithEmailAndPassword(email, password);
   }
 
-  signupUser(email: string, password: string): Promise<any> {
+  signupUser(
+      email: string,
+      password: string,
+      firstName: string,
+      lastName: string,
+      licence: string,
+      mobile: number,
+      address: string
+  ): Promise<any> {
     return firebase
         .auth()
         .createUserWithEmailAndPassword(email, password)
         .then((newUserCredential: firebase.auth.UserCredential) => {
           firebase
               .firestore()
-              .doc(`/userProfile/${newUserCredential.user.uid}`)
-              .set({ email });
+              .doc(`/userProfile/${ newUserCredential.user.uid }`)
+              .set({ email, firstName, lastName, licence, mobile, address });
         })
         .catch(error => {
           console.error(error);

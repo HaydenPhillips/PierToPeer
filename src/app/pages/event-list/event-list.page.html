@@ -1,23 +1,30 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title>Your Events</ion-title>
-  </ion-toolbar>
+   <ion-toolbar>
+      <ion-buttons slot="start">
+         <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title>SEND</ion-title>
+   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-    <ion-list-header>
-      <ion-label>Your next events</ion-label>
-    </ion-list-header>
-    <ion-item tappable *ngFor="let event of eventList" routerLink="/event-detail/{{ event.id }}">
-      <ion-label>
-        <h2>{{event?.name}}</h2>
-        <p>Ticket: <strong>${{event?.price}}</strong></p>
-        <p>Date: <strong>{{event?.date}}</strong></p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+   <ion-list>
+      <ion-list-header>
+         <ion-label>SEND Listings</ion-label>
+      </ion-list-header>
+
+      <ion-item tappable *ngFor="let event of eventList" routerLink="/event-detail/{{event.id}}">
+         <ion-card>
+            <ion-card-header>
+               Item Name: <span>{{event?.itemName}}</span>
+            </ion-card-header>
+            <ion-card-content>
+               <p>Price Offer:      <strong>${{event?.offerPrice}}   </strong></p>
+               <p>Date to be Sent:  <strong>{{event?.sendDate}}      </strong></p>
+               <p>Start Location:   <strong>{{event?.startLocation}} </strong></p>
+               <p>Destination:      <strong>{{event?.destination}}   </strong></p>
+            </ion-card-content>
+         </ion-card>
+      </ion-item>
+   </ion-list>
 </ion-content>

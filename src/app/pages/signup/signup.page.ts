@@ -12,38 +12,51 @@ import { Router } from '@angular/router';
 export class SignupPage implements OnInit {
   public signupForm: FormGroup;
   public loading: any;
+
   constructor(
       private authService: AuthService,
       private loadingCtrl: LoadingController,
       private alertCtrl: AlertController,
       private formBuilder: FormBuilder,
-      private router: Router
-  ) {
+      private router: Router ) {
+
     this.signupForm = this.formBuilder.group({
-      email: ['', Validators.compose([Validators.required, Validators.email])],
-      password: [
-        '',
-        Validators.compose([Validators.minLength(6), Validators.required])
-      ]
+      email:      [ '', Validators.compose([Validators.required, Validators.email])  ],
+      password:   [ '', Validators.compose([Validators.minLength(6), Validators.required])  ],
+      firstName:  [ '', Validators.compose([Validators.required])  ],
+      lastName:   [ '', Validators.compose([Validators.required])  ],
+      licence:    [ '', Validators.compose([Validators.minLength(6), Validators.required])  ],
+      mobile:     [ '', Validators.compose([Validators.required])  ],
+      address:    [ '', Validators.compose([Validators.required])  ]
     });
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   async signupUser(signupForm: FormGroup): Promise<void> {
     if (!signupForm.valid) {
-      console.log(
-          'Need to complete the form, current value: ',
-          signupForm.value
-      );
-    } else {
-      const email: string = signupForm.value.email;
-      const password: string = signupForm.value.password;
+      console.log('Need to complete the form, current value: ', signupForm.value);
+    }
+    else {
+      const email:      string = signupForm.value.email;
+      const password:   string = signupForm.value.password;
+      const firstName:  string = signupForm.value.firstName;
+      const lastName:   string = signupForm.value.lastName;
+      const licence:    string = signupForm.value.licence;
+      const mobile:     number = signupForm.value.mobile;
+      const address:    string = signupForm.value.address;
 
-      this.authService.signupUser(email, password).then(
+      this.authService.signupUser(
+          email,
+          password,
+          firstName,
+          lastName,
+          licence,
+          mobile,
+          address
+      ).then(
           () => {
+
             this.loading.dismiss().then(() => {
               this.router.navigateByUrl('home');
             });
