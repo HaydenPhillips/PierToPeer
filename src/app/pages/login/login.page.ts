@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { LoadingController, AlertController } from '@ionic/angular';
 import { AuthService } from '../../services/user/auth.service';
+import { ProfileService } from '../../services/user/profile.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,6 +18,7 @@ export class LoginPage implements OnInit {
       public loadingCtrl: LoadingController,
       public alertCtrl: AlertController,
       private authService: AuthService,
+      private profileService: ProfileService,
       private router: Router,
       private formBuilder: FormBuilder) {
     this.loginForm = this.formBuilder.group({
@@ -41,8 +43,9 @@ export class LoginPage implements OnInit {
 
       this.authService.loginUser(email, password).then(
           () => {
+           // console.log("navigating now");
             this.loading.dismiss().then(() => {
-              this.router.navigateByUrl('home');
+              this.router.navigateByUrl('tabs');
             });
           },
           error => {

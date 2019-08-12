@@ -8,15 +8,15 @@ import 'firebase/storage';
    providedIn: 'root'
 })
 export class EventService {
-   public eventListRef: firebase.firestore.CollectionReference;
+   public senderList: firebase.firestore.CollectionReference;
    public transportList: firebase.firestore.CollectionReference;
 
    constructor() {
       firebase.auth().onAuthStateChanged(user => {
          if (user) {
-            this.eventListRef = firebase
+            this.senderList = firebase
                 .firestore()
-                .collection(`/userProfile/${user.uid}/eventList`);
+                .collection(`/userProfile/${user.uid}/sendList`);
          }
       });
 
@@ -24,7 +24,7 @@ export class EventService {
          if (user) {
             this.transportList = firebase
                 .firestore()
-                .collection(`/userProfile/${user.uid}/eventList`);
+                .collection(`/userProfile/${user.uid}/transList`);
          }
       });
    }
@@ -40,7 +40,7 @@ export class EventService {
        length: number,
        mobile: number
    ): Promise<firebase.firestore.DocumentReference> {
-      return this.eventListRef.add({
+      return this.senderList.add({
          itemName: itemName,
          startLocation: startLocation,
          destination: destination,
@@ -76,15 +76,15 @@ export class EventService {
    }
 
    getSendList(): firebase.firestore.CollectionReference {
-      return this.eventListRef;
+      return this.senderList;
    }
 
    getTransList(): firebase.firestore.CollectionReference {
       return this.transportList;
    }
 
-   getEventDetail(eventId: string): firebase.firestore.DocumentReference {
-      return this.eventListRef.doc(eventId);
+   getSendDetail(eventId: string): firebase.firestore.DocumentReference {
+      return this.senderList.doc(eventId);
    }
 
    getTransDetail(eventId: string): firebase.firestore.DocumentReference {

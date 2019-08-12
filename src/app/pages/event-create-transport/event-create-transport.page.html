@@ -11,7 +11,7 @@
 
   <ion-item>
     <ion-label position="stacked">Starting Location</ion-label>
-    <ion-input [(ngModel)]="startLocation" type="text" placeholder="Where is the pick up location?">
+    <ion-input [(ngModel)]="startLocation" type="text" placeholder="Where is your starting location?">
     </ion-input>
   </ion-item>
 
@@ -22,33 +22,33 @@
   </ion-item>
 
   <ion-item>
-    <ion-label position="stacked">Date of Departure</ion-label>
-    <ion-datetime [(ngModel)]="transDate" displayFormat="DD MM, YY" pickerFormat="DD MM YYYY" min="2017"
-                  max="2020-12-31" placeholder="When would you like the item sent?">
+    <ion-label position="stacked">Departure</ion-label>
+    <ion-datetime [(ngModel)]="transDate" min="2017"
+                  max="2020-12-31" placeholder="When does your journey start?">
     </ion-datetime>
   </ion-item>
 
   <ion-item>
-    <ion-label position="stacked">Freight Offer</ion-label>
-    <ion-input [(ngModel)]="freightPrice" type="number" placeholder="How much will you pay to send?">
+    <ion-label position="stacked">Freight Price</ion-label>
+    <ion-input [(ngModel)]="freightPrice" type="number" placeholder="Cost for you to transport goods?">
     </ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="stacked">Item Height</ion-label>
-    <ion-input [(ngModel)]="height" type="number" placeholder="What is the height of your item?">
+    <ion-input [(ngModel)]="height" type="number" placeholder="The height of available space">
     </ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="stacked">Item Width</ion-label>
-    <ion-input [(ngModel)]="width" type="number" placeholder="What is the width of your item?">
+    <ion-input [(ngModel)]="width" type="number" placeholder="The width of available space">
     </ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="stacked">Item Length</ion-label>
-    <ion-input [(ngModel)]="length" type="number" placeholder="What is the length of your item?">
+    <ion-input [(ngModel)]="length" type="number" placeholder="The length of available space">
     </ion-input>
   </ion-item>
 

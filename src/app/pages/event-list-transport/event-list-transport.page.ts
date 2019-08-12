@@ -7,20 +7,19 @@ import {EventService} from '../../services/event/event.service';
       styleUrls: ['./event-list-transport.page.scss'],
 })
 export class EventListTransportPage implements OnInit {
-      public eventList: Array<any>;
+      public transList: Array<any>;
 
-      constructor(private eventService: EventService) {
-      }
+      constructor(private eventService: EventService) {}
 
       ngOnInit() {
             this.eventService
                 .getTransList()
                 .get()
                 .then(eventListSnapshot => {
-                      this.eventList = [];
+                      this.transList = [];
 
                       eventListSnapshot.forEach(snap => {
-                            this.eventList.push({
+                            this.transList.push({
                                   id: snap.id,
                                   startLocation: snap.data().startLocation,
                                   destination: snap.data().destination,
@@ -28,7 +27,8 @@ export class EventListTransportPage implements OnInit {
                                   transDate: snap.data().transDate,
                                   height: snap.data().height,
                                   length: snap.data().length,
-                                  width: snap.data().width
+                                  width: snap.data().width,
+                                  mobile: snap.data().mobile
                             });
                             return false;
                       });

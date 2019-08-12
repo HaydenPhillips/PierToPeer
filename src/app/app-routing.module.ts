@@ -4,32 +4,51 @@ import { AuthGuard } from './services/user/auth.guard';
 
 const routes: Routes = [
 
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
 
-  { path: 'home', loadChildren: './home/home.module#HomePageModule', canActivate: [AuthGuard] },
+  // { path: 'tabs', loadChildren:
+  //       './tabs/tabs.module#TabsPageModule' },
 
-  { path: 'event-create', loadChildren: './pages/event-create/event-create.module#EventCreatePageModule', canActivate: [AuthGuard] },
+  {
+  path: '',
+  loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+},
 
-  { path: 'event-detail', loadChildren: './pages/event-detail/event-detail.module#EventDetailPageModule' },
+  { path: 'home', loadChildren:
+        './home/home.module#HomePageModule', canActivate: [AuthGuard] },
 
-  { path: 'event-detail/:id', loadChildren: './pages/event-detail/event-detail.module#EventDetailPageModule', canActivate: [AuthGuard] },
+  { path: 'event-create', loadChildren:
+        './pages/event-create/event-create.module#EventCreatePageModule', canActivate: [AuthGuard] },
 
-  { path: 'event-list', loadChildren: './pages/event-list/event-list.module#EventListPageModule', canActivate: [AuthGuard] },
+  { path: 'event-detail', loadChildren:
+        './pages/event-detail/event-detail.module#EventDetailPageModule' },
 
-  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
+  { path: 'event-detail/:id', loadChildren:
+        './pages/event-detail/event-detail.module#EventDetailPageModule', canActivate: [AuthGuard] },
 
-  { path: 'profile', loadChildren: './pages/profile/profile.module#ProfilePageModule', canActivate: [AuthGuard] },
+  { path: 'event-list', loadChildren:
+        './pages/event-list/event-list.module#EventListPageModule', canActivate: [AuthGuard] },
 
-  { path: 'reset-password', loadChildren: './pages/reset-password/reset-password.module#ResetPasswordPageModule' },
+  { path: 'login', loadChildren:
+        './pages/login/login.module#LoginPageModule' },
 
-  { path: 'signup', loadChildren: './pages/signup/signup.module#SignupPageModule' },
+  { path: 'profile', loadChildren:
+        './pages/profile/profile.module#ProfilePageModule', canActivate: [AuthGuard] },
 
-  { path: 'pages', loadChildren: './pages/pages.module#PagesPageModule' },
+  { path: 'reset-password', loadChildren:
+        './pages/reset-password/reset-password.module#ResetPasswordPageModule' },
 
-  { path: 'event-create-transport', loadChildren: './pages/event-create-transport/event-create-transport.module#EventCreateTransportPageModule' },
+  { path: 'signup', loadChildren:
+        './pages/signup/signup.module#SignupPageModule' },
 
-  { path: 'event-list-transport', loadChildren: './pages/event-list-transport/event-list-transport.module#EventListTransportPageModule' },
-  { path: 'event-detail-transport', loadChildren: './pages/event-detail-transport/event-detail-transport.module#EventDetailTransportPageModule' }
+  { path: 'event-create-transport', loadChildren:
+        './pages/event-create-transport/event-create-transport.module#EventCreateTransportPageModule' },
+
+  { path: 'event-list-transport', loadChildren:
+        './pages/event-list-transport/event-list-transport.module#EventListTransportPageModule' },
+
+  { path: 'event-detail-transport', loadChildren:
+        './pages/event-detail-transport/event-detail-transport.module#EventDetailTransportPageModule' }
 
 ];
 @NgModule({

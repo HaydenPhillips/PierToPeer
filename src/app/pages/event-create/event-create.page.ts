@@ -19,11 +19,9 @@ export class EventCreatePage implements OnInit {
    length: number;
    mobile: number;
 
-   constructor(private router: Router, private eventService: EventService) {
-   }
+   constructor(private router: Router, private eventService: EventService) {}
 
-   ngOnInit() {
-   }
+   ngOnInit() {}
 
    createEvent(
        itemName: string,

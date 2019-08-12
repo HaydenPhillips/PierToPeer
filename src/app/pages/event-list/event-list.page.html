@@ -10,10 +10,10 @@
 <ion-content padding>
    <ion-list>
       <ion-list-header>
-         <ion-label>SEND Listings</ion-label>
+         <ion-label>Send Listings</ion-label>
       </ion-list-header>
 
-      <ion-item tappable *ngFor="let event of eventList" routerLink="/event-detail/{{event.id}}">
+<ion-item tappable *ngFor="let event of sendList" routerLink="/event-detail/{{event.id}}">
          <ion-card>
             <ion-card-header>
                Item Name: <span>{{event?.itemName}}</span>

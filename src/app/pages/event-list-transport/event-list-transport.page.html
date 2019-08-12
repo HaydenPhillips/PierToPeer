@@ -13,7 +13,7 @@
          <ion-label>Transport Listings</ion-label>
       </ion-list-header>
 
-      <ion-item tappable *ngFor="let event of eventList" routerLink="/event-detail-transport/{{event.id}}">
+      <ion-item tappable *ngFor="let event of transList" routerLink="/event-detail-transport/{{event.id}}">
          <ion-card>
             <ion-card-header>
                Space Available: <span>{{event?.height + "x" + event?.width + "x" + event?.length}}</span>
