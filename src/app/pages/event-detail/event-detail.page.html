@@ -1,7 +1,7 @@
 <ion-header>
    <ion-toolbar>
       <ion-buttons slot="start">
-         <ion-back-button></ion-back-button>
+         <ion-back-button defaultHref="/tabs/event-list"></ion-back-button>
       </ion-buttons>
       <ion-title>DETAILS</ion-title>
    </ion-toolbar>
@@ -9,15 +9,16 @@
 
 <ion-content padding>
    <ion-card>
-      <ion-card-header>
-         Item Name:           <span>{{currentEvent?.itemName}}</span>
+      <ion-card-header class="text-size-xlarge">
+         <strong>{{currentEvent?.itemName}}</strong>
       </ion-card-header>
+      <ion-img padding src="assets/images/image_placeholder_large.png"></ion-img>
       <ion-card-content>
-         <p>Price Offer:      <strong>${{currentEvent?.offerPrice}}</strong></p>
-         <p>Date to be Sent:  <strong>{{currentEvent?.sendDate}}</strong></p>
-         <p>Start Location:   <strong>{{currentEvent?.startLocation}}</strong></p>
-         <p>Destination:      <strong>{{currentEvent?.destination}}</strong></p>
-         <p>Phone:            <strong>{{currentEvent?.mobile}}</strong></p>
+         <p class="text-size">Price Offer:      <strong>${{currentEvent?.offerPrice}}</strong></p>
+         <p class="text-size">Date to be Sent:  <strong>{{currentEvent?.sendDate}}</strong></p>
+         <p class="text-size">Start Location:   <strong>{{currentEvent?.startLocation}}</strong></p>
+         <p class="text-size">Destination:      <strong>{{currentEvent?.destination}}</strong></p>
+         <p class="text-size">Phone:            <strong>{{currentEvent?.mobile}}</strong></p>
       </ion-card-content>
    </ion-card>
 </ion-content>

@@ -58,7 +58,7 @@ export class SignupPage implements OnInit {
           () => {
 
             this.loading.dismiss().then(() => {
-              this.router.navigateByUrl('home');
+              this.router.navigateByUrl('tabs/home');
             });
           },
           error => {

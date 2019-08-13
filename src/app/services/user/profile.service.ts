@@ -29,11 +29,7 @@ export class ProfileService {
   }
 
   getUserProfile(): firebase.firestore.DocumentReference {
-   // if (this.isUser()) {
       return this.userProfile;
-   // }
-   // console.log("undefined user error");
-   // return
   }
 
 

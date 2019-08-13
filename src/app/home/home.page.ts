@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {EventService} from '../services/event/event.service';
+import {ProfileService} from '../services/user/profile.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,7 @@ import {EventService} from '../services/event/event.service';
 })
 export class HomePage {
 
-  constructor(private eventService: EventService) {
+  constructor(private eventService: EventService, private profileService: ProfileService) {
 
   }
 }

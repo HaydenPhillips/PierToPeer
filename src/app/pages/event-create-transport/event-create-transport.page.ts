@@ -55,7 +55,7 @@ export class EventCreateTransportPage implements OnInit {
               length,
               mobile
           ).then(() => {
-         this.router.navigateByUrl('');  //sending the data to EventService, as soon as event is created,
+         this.router.navigateByUrl('tabs/home');  //sending the data to EventService, as soon as event is created,
          // this.router.navigateByUrl(''); goes back to HomePage
       });
    }

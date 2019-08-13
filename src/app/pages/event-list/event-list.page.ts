@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {EventService} from '../../services/event/event.service';
+// import {ActivatedRoute} from '@angular/router';
 
 @Component({
    selector: 'app-event-list',

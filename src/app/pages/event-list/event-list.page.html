@@ -1,24 +1,19 @@
 <ion-header>
    <ion-toolbar>
       <ion-buttons slot="start">
-         <ion-back-button></ion-back-button>
+         <ion-back-button defaultHref="/tabs/home"></ion-back-button>
       </ion-buttons>
-      <ion-title>SEND</ion-title>
+      <ion-title>SEND LISTINGS</ion-title>
    </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
    <ion-list>
-      <ion-list-header>
-         <ion-label>Send Listings</ion-label>
-      </ion-list-header>
-
-<ion-item tappable *ngFor="let event of sendList" routerLink="/event-detail/{{event.id}}">
+      <ion-item tappable *ngFor="let event of sendList" routerLink="/tabs/event-detail/{{event.id}}">
          <ion-card>
-            <ion-card-header>
-               Item Name: <span>{{event?.itemName}}</span>
-            </ion-card-header>
             <ion-card-content>
+               <ion-img padding-bottom="5" class="full-image" src="assets/images/image_placeholder_small.png"></ion-img>
+               <p>Item Name:        <strong>{{event?.itemName}}   </strong></p>
                <p>Price Offer:      <strong>${{event?.offerPrice}}   </strong></p>
                <p>Date to be Sent:  <strong>{{event?.sendDate}}      </strong></p>
                <p>Start Location:   <strong>{{event?.startLocation}} </strong></p>

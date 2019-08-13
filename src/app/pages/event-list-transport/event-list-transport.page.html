@@ -1,28 +1,25 @@
 <ion-header>
    <ion-toolbar>
       <ion-buttons slot="start">
-         <ion-back-button></ion-back-button>
+         <ion-back-button defaultHref="/tabs/home"></ion-back-button>
       </ion-buttons>
-      <ion-title>TRANSPORT</ion-title>
+      <ion-title>TRANSPORT LISTINGS</ion-title>
    </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
    <ion-list>
-      <ion-list-header>
-         <ion-label>Transport Listings</ion-label>
-      </ion-list-header>
-
-      <ion-item tappable *ngFor="let event of transList" routerLink="/event-detail-transport/{{event.id}}">
+      <ion-item tappable *ngFor="let event of transList" routerLink="/tabs/event-detail-transport/{{event.id}}">
          <ion-card>
-            <ion-card-header>
-               Space Available: <span>{{event?.height + "x" + event?.width + "x" + event?.length}}</span>
-            </ion-card-header>
             <ion-card-content>
-               <p>Freight Offer:   <strong>${{event?.freightPrice}}   </strong></p>
+
+               <ion-img padding-bottom="5" class="full-image" src="assets/images/image_placeholder_small.png"></ion-img>
+
+               <p>Space Available: <span>{{event?.height + "x" + event?.width + "x" + event?.length}}m3</span></p>
+               <p>Freight Offer: <strong>${{event?.freightPrice}}   </strong></p>
                <p>Date to be Sent: <strong>{{event?.transDate}}       </strong></p>
-               <p>Start Location:  <strong>{{event?.startLocation}}   </strong></p>
-               <p>Destination:     <strong>{{event?.destination}}     </strong></p>
+               <p>Start Location: <strong>{{event?.startLocation}}   </strong></p>
+               <p>Destination: <strong>{{event?.destination}}     </strong></p>
             </ion-card-content>
          </ion-card>
       </ion-item>

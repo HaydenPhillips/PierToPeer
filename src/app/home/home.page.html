@@ -1,31 +1,48 @@
 <ion-header>
    <ion-toolbar>
-
       <ion-title>home</ion-title>
 
       <ion-buttons slot="end">
-         <ion-button routerLink="/profile">
-            <ion-icon slot="icon-only" name="person"></ion-icon>
+         <ion-button routerLink="/tabs/profile">
+            <ion-icon slot="icon-only" name="person" style="color:#0492A5"></ion-icon>
          </ion-button>
       </ion-buttons>
-
    </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-   <ion-button expand="block" color="primary" routerLink="/event-create">
-      Send an item
-   </ion-button>
 
-   <ion-button expand="block" color="primary" routerLink="/event-create-transport">
-      Transport an item
-   </ion-button>
 
-   <ion-button expand="block" color="primary" routerLink="/event-list">
-      Send Listings
-   </ion-button>
+   <ion-img src="assets/images/PiertoPeer_logo-text.png"></ion-img>
 
-   <ion-button expand="block" color="primary" routerLink="/event-list-transport">
-      Transport Listings
-   </ion-button>
+   <ion-col>
+      <ion-row padding-bottom="80" class="ion-text">
+         <i>
+            Closing the gap between the North and South island.
+            Connecting senders and transporters.
+         </i>
+      </ion-row>
+
+      <ion-row class="space"></ion-row>
+   </ion-col>
+   <ion-col justify-content-center>
+      <ion-row padding-top="100" class="ion-text">
+         <p><i>If you have an item you want to send.
+            Or, if you're heading over the cook straight with free space on your vehicle.</i></p>
+      </ion-row>
+   </ion-col>
+   <ion-row class="ion-justify-content-evenly">
+      <ion-col>
+         <ion-button expand="block" class="darkGreen" routerLink="/tabs/event-create">
+            Send an item
+         </ion-button>
+      </ion-col>
+      <ion-col>
+         <ion-button expand="block" class="darkGreen" routerLink="/tabs/event-create-transport">
+            Transport an item
+         </ion-button>
+
+      </ion-col>
+   </ion-row>
+
 </ion-content>

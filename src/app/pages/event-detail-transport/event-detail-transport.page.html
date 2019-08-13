@@ -1,7 +1,7 @@
 <ion-header>
    <ion-toolbar>
       <ion-buttons slot="start">
-         <ion-back-button></ion-back-button>
+         <ion-back-button defaultHref="/tabs/event-list-transport"></ion-back-button>
       </ion-buttons>
       <ion-title>DETAILS</ion-title>
    </ion-toolbar>
@@ -9,15 +9,16 @@
 
 <ion-content padding>
    <ion-card>
-      <ion-card-header>
-         Space Available: <span>{{currentEvent?.height+"x"+currentEvent?.width+"x"+currentEvent?.length}}</span>
+      <ion-card-header class="text-size-xlarge">
+         Space Available: <span><strong>{{currentEvent?.height+"x"+currentEvent?.width+"x"+currentEvent?.length}}m3</strong></span>
       </ion-card-header>
+      <ion-img padding src="assets/images/image_placeholder_large.png"></ion-img>
       <ion-card-content>
-         <p>Freight Offer:    <strong>${{currentEvent?.freightPrice}}   </strong></p>
-         <p>Departure:        <strong>{{currentEvent?.transDate}}       </strong></p>
-         <p>Start Location:   <strong>{{currentEvent?.startLocation}}   </strong></p>
-         <p>Destination:      <strong>{{currentEvent?.destination}}     </strong></p>
-         <p>Phone:            <strong>{{currentEvent?.mobile}}          </strong></p>
+         <p class="text-size">Freight Offer:    <strong>${{currentEvent?.freightPrice}}   </strong></p>
+         <p class="text-size">Departure:        <strong>{{currentEvent?.transDate}}       </strong></p>
+         <p class="text-size">Start Location:   <strong>{{currentEvent?.startLocation}}   </strong></p>
+         <p class="text-size">Destination:      <strong>{{currentEvent?.destination}}     </strong></p>
+         <p class="text-size">Phone:            <strong>{{currentEvent?.mobile}}          </strong></p>
       </ion-card-content>
    </ion-card>
 </ion-content>

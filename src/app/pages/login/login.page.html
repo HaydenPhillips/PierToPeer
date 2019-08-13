@@ -39,21 +39,21 @@
   <ion-row class="ion-justify-content-evenly">
     <ion-col size="5">
       <div>
-        <ion-button (click)="loginUser(loginForm)" expand="block" [disabled]="!loginForm.valid">
+        <ion-button (click)="loginUser(loginForm)" expand="block" class="darkGreen" [disabled]="!loginForm.valid">
           Log In
         </ion-button>
       </div>
     </ion-col>
     <ion-col size="5">
       <div>
-        <ion-button expand="block" routerLink="/signup">
+        <ion-button expand="block" class="darkGreen" routerLink="/tabs/signup">
           Create account
         </ion-button>
       </div>
     </ion-col>
   </ion-row>
 
-  <ion-button expand="block" fill="clear" routerLink="/reset-password">
+  <ion-button expand="block" fill="clear" style="color:#0492A5" routerLink="/tabs/reset-password">
     Forgot password
   </ion-button>
 

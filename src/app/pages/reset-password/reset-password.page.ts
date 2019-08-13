@@ -34,7 +34,7 @@ export class ResetPasswordPage implements OnInit {
               message: 'Check your email for a password reset link',
               buttons: [
                 { text: 'Ok', role: 'cancel', handler: () => {
-                    this.router.navigateByUrl('login'); }, },
+                    this.router.navigateByUrl('tabs/login'); }, },
               ],
             });
             await alert.present();
