@@ -14,6 +14,7 @@ export class EventDetailPage implements OnInit {
 
    constructor(private eventService: EventService, private route: ActivatedRoute) {}
 
+   // Gets the event listing id form the current event
    ngOnInit() {
       const eventId: string = this.route.snapshot.paramMap.get('id');
 
@@ -21,12 +22,15 @@ export class EventDetailPage implements OnInit {
          this.currentEvent = eventSnapshot.data();
          this.currentEvent.id = eventSnapshot.id;
       });
-
-      // this.profileService
-      //     .getUserProfile()
-      //     .get()
-      //     .then(userProfileSnapshot => {
-      //          this.userProfile = userProfileSnapshot.data();
-      //     });
    }
 }
+
+// Could use this to get data from the users profile database
+// userProfile can then be used to get their mobile number associated
+
+// this.profileService
+//     .getUserProfile()
+//     .get()
+//     .then(userProfileSnapshot => {
+//          this.userProfile = userProfileSnapshot.data();
+//     });

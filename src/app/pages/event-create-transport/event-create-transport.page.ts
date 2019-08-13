@@ -24,6 +24,9 @@ export class EventCreateTransportPage implements OnInit {
    ngOnInit() {
    }
 
+   // Creates a sender transporting event by sending data (user input) to EventService.
+   // Once event has been created, system navigates to home page.
+   // if any inputs are undefined when the user clicks create, the event is ignored.
    createTransportEvent(
        startLocation: string,
        destination: string,

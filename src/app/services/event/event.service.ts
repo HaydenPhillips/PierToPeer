@@ -28,7 +28,7 @@ export class EventService {
          }
       });
    }
-
+   // creates sender listing from the user input
    createEvent(
        itemName: string,
        startLocation: string,
@@ -53,6 +53,7 @@ export class EventService {
       });
    }
 
+   // creates transporter listing from the user input
    createTransportEvent(
        startLocation: string,
        destination: string,

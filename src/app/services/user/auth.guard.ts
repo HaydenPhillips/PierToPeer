@@ -7,6 +7,7 @@ import 'firebase/auth';
 @Injectable({
   providedIn: 'root'
 })
+// if user is not logged in, navigate to login screen
 export class AuthGuard implements CanActivate {
   constructor(private router: Router) {}
 

@@ -13,6 +13,7 @@ export class EventListTransportPage implements OnInit {
    constructor(private eventService: EventService, private route: ActivatedRoute) {
    }
 
+   // goes through all transporter listings and gets details (snaps) of a the events
    ngOnInit() {
       this.eventService
           .getTransList()

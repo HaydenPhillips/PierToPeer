@@ -4,11 +4,7 @@ import { AuthGuard } from './services/user/auth.guard';
 
 const routes: Routes = [
 
-  { path: '', redirectTo: 'tabs/login', pathMatch: 'full' },
-
-  // { path: 'tabs', loadChildren:
-  //       './tabs/tabs.module#TabsPageModule' },
-
+  { path: '', redirectTo: 'tabs/login', pathMatch: 'full' },        //routes to login on startup
   {
   path: '',
   loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
@@ -23,6 +19,7 @@ const routes: Routes = [
   { path: 'event-detail', loadChildren:
         './pages/event-detail/event-detail.module#EventDetailPageModule' },
 
+    // navigates to the selected listing using the UID from database
   { path: 'event-detail/:id', loadChildren:
         './pages/event-detail/event-detail.module#EventDetailPageModule', canActivate: [AuthGuard] },
 

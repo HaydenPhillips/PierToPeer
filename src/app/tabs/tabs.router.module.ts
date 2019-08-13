@@ -3,6 +3,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {TabsPage} from './tabs.page';
 import {AuthGuard} from '../services/user/auth.guard';
 
+// all pages are children of the tabs page to allow the tabs bar (HTML) stay present
+// throughout the app
 const routes: Routes = [
    {
       path: 'tabs', component: TabsPage, children: [
@@ -30,6 +32,7 @@ const routes: Routes = [
             path: 'event-detail', loadChildren:
                 './pages/event-detail/event-detail.module#EventDetailPageModule'
          },
+         // navigates to the selected listing using the UID from database
          { path: 'event-detail/:id', loadChildren:
                 './pages/event-detail/event-detail.module#EventDetailPageModule', canActivate: [AuthGuard]
          },
@@ -37,6 +40,7 @@ const routes: Routes = [
             path: 'event-detail-transport', loadChildren:
                 './pages/event-detail-transport/event-detail-transport.module#EventDetailTransportPageModule'
          },
+         // navigates to the selected listing using the UID from database
          { path: 'event-detail-transport/:id', loadChildren:
                 './pages/event-detail-transport/event-detail-transport.module#EventDetailTransportPageModule', canActivate: [AuthGuard]
          },

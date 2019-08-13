@@ -12,6 +12,7 @@ export class EventListPage implements OnInit {
 
    constructor(private eventService: EventService) {}
 
+   // goes through all sender listings and gets details (snaps) of a the events
    ngOnInit() {
       this.eventService
           .getSendList()

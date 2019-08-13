@@ -31,8 +31,8 @@ export class SignupPage implements OnInit {
     });
   }
 
+  // if inputs are invalid, an alert is shown to user
   ngOnInit() {}
-
   async signupUser(signupForm: FormGroup): Promise<void> {
     if (!signupForm.valid) {
       console.log('Need to complete the form, current value: ', signupForm.value);

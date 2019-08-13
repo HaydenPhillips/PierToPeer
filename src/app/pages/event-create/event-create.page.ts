@@ -23,6 +23,9 @@ export class EventCreatePage implements OnInit {
 
    ngOnInit() {}
 
+   // Creates a sender listing event by sending data (user input) to EventService.
+   // Once event has been created, system navigates to home page.
+   // if any inputs are undefined when the user clicks create, the event is ignored.
    createEvent(
        itemName: string,
        startLocation: string,
@@ -57,8 +60,8 @@ export class EventCreatePage implements OnInit {
               length,
               mobile
           ).then(() => {
-         this.router.navigateByUrl('tabs/home');  //sending the data to EventService, as soon as event is created,
-         // this.router.navigateByUrl(''); goes back to HomePage
+         this.router.navigateByUrl('tabs/home');
+
       });
    }
 }
